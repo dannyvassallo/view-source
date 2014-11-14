@@ -34,10 +34,10 @@ $(function(){
 function renderPost(subreddit){
 		//Determine what subreddit we want, contact reddit accordingly.
 		if (subreddit != ''){
-			subreddit = "http://www.reddit.com/r/"+subreddit+"/.json?jsonp=?";
+			subreddit = "https://www.reddit.com/r/"+subreddit+"/.json?jsonp=?";
 		}
 		else {
-			subreddit = "http://www.reddit.com/.json?jsonp=?";
+			subreddit = "https://www.reddit.com/.json?jsonp=?";
 		}
 		var posts = $.getJSON(subreddit,
 			 function(posts) {
@@ -153,7 +153,7 @@ function getComments(raw_id, comment_location){
 	// Retrieve and display comments
 	var id = raw_id.replace('t3_', '');
 	var text = '';
-	var comment_url = 'http://www.reddit.com/comments/' + id + '.json?jsonp=?';
+	var comment_url = 'https://www.reddit.com/comments/' + id + '.json?jsonp=?';
 	var comments = $.getJSON(comment_url, function(comments){
 		comments = comments[1].data.children.slice(0,20);
 		$.each(comments, function(comment){
